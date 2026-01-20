@@ -9,7 +9,7 @@
         <h1 class="fw-bold mb-0">Recepty</h1>
 
         <?php if ($user->isLoggedIn()) { ?>
-            <a class="btn btn-primary btn-sm" href="?c=recepty&a=create">+ Pridať recept</a>
+            <a class="btn btn-primary btn-sm" href="?c=recipes&a=create">+ Pridať recept</a>
         <?php } else { ?>
             <a class="btn btn-outline-secondary btn-sm" href="<?= App\Configuration::LOGIN_URL ?>">Prihlásiť sa pre pridanie</a>
         <?php } ?>
@@ -28,7 +28,7 @@
         <div class="list-group" id="recipes-list">
             <?php foreach ($recipes as $r) { ?>
                 <a class="list-group-item list-group-item-action"
-                   href="?c=recepty&a=show&id=<?= (int)$r->getId() ?>">
+                   href="?c=recipes&a=show&id=<?= (int)$r->getId() ?>">
                     <div class="fw-semibold">
                         <?= htmlspecialchars($r->getTitle(), ENT_QUOTES, 'UTF-8') ?>
                         <?php if (!$r->isPublic()) { ?>
