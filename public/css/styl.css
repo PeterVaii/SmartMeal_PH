@@ -5,3 +5,7 @@
 .navbar-brand img {
     width: 50px;
 }
+
+.shopping-item.checked {
+    text-decoration: line-through; opacity: 0.65;
+}

@@ -81,7 +81,6 @@ class ShoppingListController extends BaseController
             $it['checked'] = $checkedMap[$key] ?? false;
         }
         unset($it);
-
         return $this->html(compact('items', 'recipeIds'));
     }
 
@@ -112,7 +111,41 @@ class ShoppingListController extends BaseController
             $item->setChecked(true);
             $item->save();
         }
-
         return $this->redirect($this->url('mealplan.index'));
+    }
+
+    public function toggleAjax(Request $request): Response
+    {
+        $user = $this->app->getAuthenticator()->getUser();
+        if (!$user->isLoggedIn()) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['ok' => false, 'error' => 'not_logged_in']);
+            exit;
+        }
+
+        $name = (string)$request->value('name');
+        $unit = $request->value('unit') !== null ? (string)$request->value('unit') : null;
+        $checked = (int)$request->value('checked') === 1;
+
+        $items = ShoppingItem::getAll(
+            '`user_id` = ? AND `name` = ? AND ' . ($unit !== null ? '`unit` = ?' : '`unit` IS NULL'),
+            $unit !== null ? [$user->getId(), $name, $unit] : [$user->getId(), $name]
+        );
+
+        if (!empty($items)) {
+            $it = $items[0];
+        } else {
+            $it = new \App\Models\ShoppingItem();
+            $it->setUserId((int)$user->getId());
+            $it->setName($name);
+            $it->setUnit($unit);
+        }
+
+        $it->setChecked($checked);
+        $it->save();
+
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['ok' => true, 'checked' => $checked]);
+        exit;
     }
 }

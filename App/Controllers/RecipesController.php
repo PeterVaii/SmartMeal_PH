@@ -223,4 +223,37 @@ class RecipesController extends BaseController
         $recipe->delete();
         return $this->redirect($this->url('recipes.index'));
     }
+
+    public function searchAjax(Request $request): Response
+    {
+        $q = trim((string)$request->value('q'));
+        $like = '%' . $q . '%';
+
+        $user = $this->app->getAuthenticator()->getUser();
+
+        if ($user->isLoggedIn()) {
+            $recipes = Recipe::getAll(
+                '(`is_public` = 1 OR `user_id` = ?) AND `title` LIKE ?',
+                [$user->getId(), $like],
+                orderBy: '`created_at` DESC'
+            );
+        } else {
+            $recipes = Recipe::getAll(
+                '`is_public` = 1 AND `title` LIKE ?',
+                [$like],
+                orderBy: '`created_at` DESC'
+            );
+        }
+
+        $payload = array_map(fn($r) => [
+            'id' => (int)$r->getId(),
+            'title' => (string)$r->getTitle(),
+            'description' => (string)($r->getDescription() ?? ''),
+            'is_public' => (int)$r->isPublic(),
+        ], $recipes);
+
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['ok' => true, 'recipes' => $payload]);
+        exit;
+    }
 }
