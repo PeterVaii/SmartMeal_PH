@@ -41,10 +41,10 @@
                 </li>
                 <?php if ($user->isLoggedIn()) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $link->url('jedalnyplan.index') ?>">Jedálny plán</a>
+                        <a class="nav-link" href="<?= $link->url('mealplan.index') ?>">Jedálny plán</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $link->url('nakupnyzoznam.index') ?>">Nákupný zoznam</a>
+                        <a class="nav-link" href="<?= $link->url('shoppinglist.index') ?>">Nákupný zoznam</a>
                     </li>
                 <?php } ?>
             </ul>
