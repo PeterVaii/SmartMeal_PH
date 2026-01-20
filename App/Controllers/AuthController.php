@@ -50,7 +50,7 @@ class AuthController extends BaseController
         if ($request->hasValue('submit')) {
             $logged = $this->app->getAuthenticator()->login($request->value('username'), $request->value('password'));
             if ($logged) {
-                return $this->redirect($this->url("admin.index"));
+                return $this->redirect($this->url("homepage.index"));
             }
         }
 
@@ -69,7 +69,7 @@ class AuthController extends BaseController
     public function logout(Request $request): Response
     {
         $this->app->getAuthenticator()->logout();
-        return $this->html();
+        return $this->redirect($this->url("homepage.index"));
     }
 
     public function register(Request $request): Response
