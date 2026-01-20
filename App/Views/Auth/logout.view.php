@@ -16,7 +16,7 @@ $view->setLayout('auth');
 
             <div class="d-grid gap-2">
                 <a class="btn btn-primary" href="<?= App\Configuration::LOGIN_URL ?>">Prihlásiť sa znova</a>
-                <a class="btn btn-outline-secondary" href="<?= $link->url('domovskastranka.index') ?>">Späť na domovskú stránku</a>
+                <a class="btn btn-outline-secondary" href="<?= $link->url('homepage.index') ?>">Späť na domovskú stránku</a>
             </div>
 
         </div>
