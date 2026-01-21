@@ -114,6 +114,7 @@ class ShoppingListController extends BaseController
         return $this->redirect($this->url('mealplan.index'));
     }
 
+    //Vygenerované pomocou ChatGPT
     public function toggleAjax(Request $request): Response
     {
         $user = $this->app->getAuthenticator()->getUser();

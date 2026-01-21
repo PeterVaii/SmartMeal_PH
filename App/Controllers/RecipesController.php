@@ -224,6 +224,7 @@ class RecipesController extends BaseController
         return $this->redirect($this->url('recipes.index'));
     }
 
+    //Vygenerované pomocou ChatGPT
     public function searchAjax(Request $request): Response
     {
         $q = trim((string)$request->value('q'));

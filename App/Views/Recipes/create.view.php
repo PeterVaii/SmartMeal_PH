@@ -4,7 +4,7 @@
 /** @var string|null $message */
 ?>
 
-<div class="container" style="max-width: 900px;">
+<div class="container page-narrow">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="fw-bold mb-0">Pridať recept</h1>
         <a class="btn btn-outline-secondary btn-sm" href="<?= $link->url('recipes.index') ?>">Späť</a>
@@ -21,16 +21,12 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label">Názov receptu</label>
-                    <label>
                         <input name="title" class="form-control" required>
-                    </label>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Krátky popis</label>
-                    <label>
                         <textarea name="description" class="form-control" rows="2" placeholder="O čom je recept?"></textarea>
-                    </label>
                 </div>
 
                 <div class="row g-2 mb-3">
@@ -48,21 +44,17 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Náročnosť</label>
-                        <label>
                             <select name="difficulty" class="form-select">
                                 <option value="easy">ľahká</option>
                                 <option value="medium">stredná</option>
                                 <option value="hard">ťažká</option>
                             </select>
-                        </label>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Postup</label>
-                    <label>
                         <textarea name="instructions" class="form-control" rows="8" required placeholder="Krok 1...&#10;Krok 2..."></textarea>
-                    </label>
                     <div class="form-text">
                         Tip: každý krok píš na nový riadok.
                     </div>

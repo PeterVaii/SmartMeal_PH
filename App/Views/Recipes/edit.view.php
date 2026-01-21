@@ -6,7 +6,7 @@
 /** @var string|null $message */
 ?>
 
-<div class="container" style="max-width: 900px;">
+<div class="container page-narrow">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="fw-bold mb-0">Upraviť recept</h1>
         <a class="btn btn-outline-secondary btn-sm" href="?c=recipes&a=show&id=<?= (int)$recipe->getId() ?>">Späť</a>
@@ -21,18 +21,14 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label">Názov</label>
-                    <label>
                         <input name="title" class="form-control"
                                value="<?= htmlspecialchars($recipe->getTitle(), ENT_QUOTES, 'UTF-8') ?>" required>
-                    </label>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Popis</label>
-                    <label>
                         <textarea name="description" class="form-control"
                             rows="2"><?= htmlspecialchars($recipe->getDescription() ?? '', ENT_QUOTES, 'UTF-8') ?></textarea>
-                    </label>
                 </div>
 
                 <div class="row g-2 mb-3">
@@ -52,22 +48,18 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Náročnosť</label>
-                        <label>
                             <select name="difficulty" class="form-select">
                                 <option value="easy" <?= $recipe->getDifficulty() === 'easy' ? 'selected' : '' ?>>ľahká</option>
                                 <option value="medium" <?= $recipe->getDifficulty() === 'medium' ? 'selected' : '' ?>>stredná</option>
                                 <option value="hard" <?= $recipe->getDifficulty() === 'hard' ? 'selected' : '' ?>>ťažká</option>
                             </select>
-                        </label>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Postup</label>
-                    <label>
                         <textarea name="instructions" class="form-control"
                             rows="8" required><?= htmlspecialchars($recipe->getInstructions(), ENT_QUOTES, 'UTF-8') ?></textarea>
-                    </label>
                 </div>
 
                 <div class="form-check">
@@ -113,7 +105,7 @@
                         </div>
                     </div>
                 </template>
-
+                <!-- Vygenerované pomocou ChatGPT -->
                 <script type="application/json" id="ingredients-prefill">
                     <?= json_encode(array_map(function($ing) {
                         return [

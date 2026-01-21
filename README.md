@@ -1,30 +1,32 @@
-# About
+# SmartMeal
 
-This framework was created to support the teaching of the subject Development of intranet and intranet applications 
-(VAII) at the [Faculty of Management Science and Informatics](https://www.fri.uniza.sk/) of
-[University of Žilina](https://www.uniza.sk/). Framework demonstrates how the MVC architecture works.
+Aplikácia, ktorá slúži na správu receptov (tvorenie, prezeranie, upravovanie, mazanie).
+Ponúka tvorbu jedálneho plánu z receptov na každý deň, ktoré sa na stránke nachádzajú.
+Z vytvoreného jedálneho plánu sa automaticky generuje nákupný zoznam surovín z jedál, ktoré sa v ňom nachádzajú.
 
-# Instructions and documentation 
+## Použité technológie
 
-The framework source code is fully commented. In case you need additional information to understand,
-visit the [WIKI stránky](https://github.com/thevajko/vaiicko/wiki/00-%C3%9Avodn%C3%A9-inform%C3%A1cie) (only in Slovak).
+- Framework Vaííčko
+- PHP (MVC architektúra)
+- MySQL / MariaDB
+- JavaScript (AJAX)
+- HTML, CSS (Bootstrap)
+- Docker
 
-# Docker configuration
+## Docker configuration
 
-The Framework has a basic configuration for running and debugging web applications in the `<root>/docker` directory. 
-All necessary services are set in `docker-compose.yml` file. After starting them, it creates the following services:
+Projekt obsahuje Docker konfiguráciu v adresári docker.
 
-- web server (Apache) with the __PHP 8.3__ 
-- MariaDB database server with a created _database_ named according `MYSQL_DATABASE` environment variable
-- Adminer application for MariaDB administration
+Po spustení sa vytvoria tieto služby:
+- Apache web server s PHP minimálnou verziou 8
+- MariaDB databázový server
+- Adminer pre správu databázy
 
-## Other notes:
+## Návod na inštaláciu
 
-- __WWW document root__ is set to the `public` in the project directory.
-- The website is available at [http://localhost/](http://localhost/).
-- The server includes an extension for PHP code debugging [__Xdebug 3__](https://xdebug.org/), uses the  
-  port __9003__ and works in "auto-start" mode.
-- PHP contains the __PDO__ extension.
-- The database server is available locally on the port __3306__. The default login details can be found in `.env` file.
-- Adminer is available at [http://localhost:8080/](http://localhost:8080/)
-
+1. Naklonovať repozitár do priečinka cez command line -> git clone <URL_REPOZITÁRA>
+2. Otvoriť naklonovaný repozitár v PHP Storme
+3. Spustiť aplikáciu Docker Desktop
+4. V projekte kliknúť na docker directory a spustiť súbor docker-compose.yml
+5. V aplikácii Docker Desktop kliknúť na port 80:80
+6. Vitajte na webe

@@ -4,7 +4,7 @@
 /** @var \Framework\Support\LinkGenerator $link */
 ?>
 
-<div class="container" style="max-width: 900px;">
+<div class="container page-narrow">
     <h1 class="fw-bold mb-3">Nákupný zoznam</h1>
 
     <?php if (empty($recipeIds)) { ?>

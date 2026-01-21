@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    //AJAX vygenerovaný pomocou ChatGPT
     const toggles = document.querySelectorAll(".shopping-toggle");
     if (toggles.length > 0) {
         toggles.forEach(cb => {

@@ -20,11 +20,11 @@ foreach ($plans as $p) {
 }
 ?>
 
-<div class="container" style="max-width: 900px;">
+<div class="container page-narrow">
     <h1 class="fw-bold mb-3">Jedálny plán</h1>
 
     <?php foreach ($days as $dayKey => $dayLabel) { ?>
-        <div class="card mb-3">
+        <div class="card mb-3 mealplan-day">
             <div class="card-body">
                 <h5 class="card-title mb-3"><?= $dayLabel ?></h5>
 
@@ -35,7 +35,7 @@ foreach ($plans as $p) {
                         <?php foreach ($dayPlans as $mp) {
                             $recipe = App\Models\Recipe::getOne($mp->getRecipeId());
                             ?>
-                            <div class="d-flex justify-content-between align-items-center border rounded p-2 mb-2">
+                            <div class="d-flex justify-content-between align-items-center border rounded p-2 mb-2 mealplan-item">
                                 <span>
                                     <?= htmlspecialchars($recipe ? $recipe->getTitle() : 'Neznámy recept', ENT_QUOTES, 'UTF-8') ?>
                                 </span>
@@ -54,7 +54,7 @@ foreach ($plans as $p) {
                     </div>
                 <?php } ?>
 
-                <form method="post" action="?c=mealplan&a=add" class="d-flex gap-2">
+                <form method="post" action="?c=mealplan&a=add" class="d-flex gap-2 mealplan-form">
                     <input type="hidden" name="day" value="<?= $dayKey ?>">
 
                     <label>

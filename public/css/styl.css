@@ -9,3 +9,95 @@
 .shopping-item.checked {
     text-decoration: line-through; opacity: 0.65;
 }
+
+.page-narrow {
+    max-width: 900px;
+}
+
+.navbar .navbar-brand {
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link.active {
+    font-weight: 600;
+}
+
+.card {
+    border-color: #eee;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.card .card-title {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.ingredient-row .remove-ingredient {
+    height: 100%;
+}
+
+#recipes-list .list-group-item {
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+#recipes-list .list-group-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+#recipe-search {
+    border-radius: 0.9rem;
+}
+
+.badge.bg-light.text-dark.border {
+    border-color: #e9ecef !important;
+    font-weight: 600;
+}
+
+h1.fw-bold {
+    letter-spacing: -0.2px;
+}
+
+.home-card {
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.home-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
+
+.home-alert {
+    border-radius: 1rem;
+    border-color: #e9ecef;
+}
+
+.mealplan-item {
+    background: #fff;
+    border-color: #eee !important;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.mealplan-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.mealplan-form .form-select {
+    flex: 1;
+    min-width: 0;
+}
+
+.mealplan-day.card {
+    border-radius: 1.25rem;
+}
